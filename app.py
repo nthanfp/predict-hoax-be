@@ -50,7 +50,7 @@ def clean_text(text):
 @app.route('/api/status', methods=['GET'])
 def get_status():
     response = {
-        'httpCode': 200,
+        'http_code': 200,
         'status': True,
         'error_msg': None
     }
@@ -62,7 +62,7 @@ def predict_news():
     # Validasi input
     if 'news' not in request.json or 'news_title' not in request.json:
         response = {
-            'httpCode': 400,
+            'http_code': 400,
             'status': False,
             'error_msg': 'Parameter "news" dan "news_title" diperlukan'
         }
@@ -76,7 +76,7 @@ def predict_news():
 
     # Menyiapkan respons API
     response = {
-        'httpCode': 200,
+        'http_code': 200,
         'status': True,
         'error_msg': None,
         'data': {
