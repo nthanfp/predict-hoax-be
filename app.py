@@ -5,8 +5,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Load model dari file
 loaded_pac = joblib.load('data_indonesia_model/model_hoax_detection.pkl')
@@ -85,7 +87,13 @@ def predict_news():
             'result_predict': result
         }
     }
-    return jsonify(response)
+
+    
+    # Menambahkan header CORS pada setiap tanggapan
+    response_object = jsonify(response)
+    response_object.headers["Access-Control-Allow-Origin"] = "*"
+
+    return response_object
 
 if __name__ == '__main__':
     app.run(debug=True)
