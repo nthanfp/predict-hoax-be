@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/83481481-74bb-4617-8195-4a5dd908a86d/resourceGroups/predict-hoax/providers/Microsoft.Web/sites/predict-hoax-backend",
+    "appService.deploySubpath": "."
+}
